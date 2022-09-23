@@ -12,13 +12,13 @@ fn map(colors:&Gradient)->Vec<String>{
 fn border(hex: &String){
     Command::new("hyprctl")
         .arg("keyword")
-        .arg("dwindle:col.group_border_active")
+        .arg("general:col.active_border")
         .arg(format!("0xff{}",hex.replace("#", "")))
         .spawn()
         .expect("Failed to execute process active border");
     Command::new("hyprctl")
         .arg("keyword")
-        .arg("dwindle:col.group_border")
+        .arg("general:col.inactive_border")
         .arg(format!("0x88{}",hex.replace("#", "")))
         .spawn()
         .expect("Failed to execute process");
